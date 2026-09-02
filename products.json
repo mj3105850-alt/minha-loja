@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Grand Theft Auto: San Andreas",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 50,
+    "image": "https://via.placeholder.com/250x350?text=GTA+San+Andreas",
+    "description": "Um dos maiores clássicos do PS2"
+  },
+  {
+    "id": 2,
+    "name": "God of War",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 45,
+    "image": "https://via.placeholder.com/250x350?text=God+of+War",
+    "description": "Épica jornada de Kratos"
+  },
+  {
+    "id": 3,
+    "name": "God of War II",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 40,
+    "image": "https://via.placeholder.com/250x350?text=God+of+War+II",
+    "description": "Continuação do clássico"
+  },
+  {
+    "id": 4,
+    "name": "Resident Evil 4",
+    "genre": "Terror",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 35,
+    "image": "https://via.placeholder.com/250x350?text=Resident+Evil+4",
+    "description": "Experiência aterradora memorável"
+  },
+  {
+    "id": 5,
+    "name": "Need for Speed Underground 2",
+    "genre": "Corrida",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 30,
+    "image": "https://via.placeholder.com/250x350?text=NFS+Underground+2",
+    "description": "Corrida urbana intenso"
+  },
+  {
+    "id": 6,
+    "name": "Need for Speed Most Wanted",
+    "genre": "Corrida",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 28,
+    "image": "https://via.placeholder.com/250x350?text=NFS+Most+Wanted",
+    "description": "Fuja da polícia e vença"
+  },
+  {
+    "id": 7,
+    "name": "Gran Turismo 4",
+    "genre": "Corrida",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 25,
+    "image": "https://via.placeholder.com/250x350?text=Gran+Turismo+4",
+    "description": "Simulador de corrida realista"
+  },
+  {
+    "id": 8,
+    "name": "Black",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 22,
+    "image": "https://via.placeholder.com/250x350?text=Black",
+    "description": "Ação pura e destrutiva"
+  },
+  {
+    "id": 9,
+    "name": "Shadow of the Colossus",
+    "genre": "Aventura",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 20,
+    "image": "https://via.placeholder.com/250x350?text=Shadow+of+Colossus",
+    "description": "Aventura e mistério épicos"
+  },
+  {
+    "id": 10,
+    "name": "Devil May Cry 3",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 18,
+    "image": "https://via.placeholder.com/250x350?text=Devil+May+Cry+3",
+    "description": "Ação e combate estiloso"
+  },
+  {
+    "id": 11,
+    "name": "Silent Hill 2",
+    "genre": "Terror",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 15,
+    "image": "https://via.placeholder.com/250x350?text=Silent+Hill+2",
+    "description": "Suspense psicológico intenso"
+  },
+  {
+    "id": 12,
+    "name": "Dragon Ball Z Budokai 3",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 35,
+    "image": "https://via.placeholder.com/250x350?text=DBZ+Budokai+3",
+    "description": "Luta com os personagens de DBZ"
+  },
+  {
+    "id": 13,
+    "name": "Naruto Ultimate Ninja 5",
+    "genre": "Ação",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 32,
+    "image": "https://via.placeholder.com/250x350?text=Naruto+Ultimate+Ninja",
+    "description": "Battles do universo Naruto"
+  },
+  {
+    "id": 14,
+    "name": "Winning Eleven",
+    "genre": "Futebol",
+    "price": 5.00,
+    "rating": 4,
+    "stock": 40,
+    "image": "https://via.placeholder.com/250x350?text=Winning+Eleven",
+    "description": "Simulador de futebol realista"
+  },
+  {
+    "id": 15,
+    "name": "Pro Evolution Soccer",
+    "genre": "Futebol",
+    "price": 5.00,
+    "rating": 4,
+    "stock": 38,
+    "image": "https://via.placeholder.com/250x350?text=Pro+Evolution+Soccer",
+    "description": "Experiência futebolística completa"
+  },
+  {
+    "id": 16,
+    "name": "Bully",
+    "genre": "Aventura",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 26,
+    "image": "https://via.placeholder.com/250x350?text=Bully",
+    "description": "Vida de escola como nunca visto"
+  },
+  {
+    "id": 17,
+    "name": "Kingdom Hearts II",
+    "genre": "Aventura",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 24,
+    "image": "https://via.placeholder.com/250x350?text=Kingdom+Hearts+II",
+    "description": "Mundo mágico de Disney e Square"
+  },
+  {
+    "id": 18,
+    "name": "Resident Evil Code Veronica X",
+    "genre": "Terror",
+    "price": 5.00,
+    "rating": 5,
+    "stock": 19,
+    "image": "https://via.placeholder.com/250x350?text=RE+Code+Veronica",
+    "description": "Sobreviva ao horror"
+  }
+]
