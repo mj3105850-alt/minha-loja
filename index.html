@@ -2,872 +2,653 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2 Store - Loja Online</title>
 
-<title>PS2 Store</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
+        body {
+            background: #0b0b10;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        /* HEADER */
+        header {
+            background: #11111a;
+            border-bottom: 1px solid #29293a;
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
 
-body {
-    background: #0b0b10;
-    color: white;
-    font-family: Arial, sans-serif;
-}
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-/* HEADER */
+        .logo span {
+            color: #4f8cff;
+        }
 
-header {
-    background: #11111a;
-    border-bottom: 1px solid #29293a;
-    padding: 18px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
+        .search {
+            width: 40%;
+        }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-}
+        .search input {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid #333344;
+            background: #191923;
+            color: white;
+            outline: none;
+        }
 
-.logo span {
-    color: #4f8cff;
-}
+        .cart-btn {
+            background: #4f8cff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.search {
-    width: 40%;
-}
+        /* BANNER */
+        .banner {
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1200px;
+            min-height: 260px;
+            border-radius: 15px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(10,10,20,.95),
+                    rgba(10,10,20,.35)
+                ),
+                linear-gradient(135deg,#17234b,#331d55);
+            display: flex;
+            align-items: center;
+            padding: 45px;
+        }
 
-.search input {
-    width: 100%;
-    padding: 12px 18px;
-    border-radius: 8px;
-    border: 1px solid #333344;
-    background: #191923;
-    color: white;
-    outline: none;
-}
+        .banner h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
 
-.cart {
-    background: #4f8cff;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
+        .banner p {
+            color: #c4c4d0;
+            font-size: 18px;
+        }
 
-/* BANNER */
+        /* CATEGORIAS */
+        .categories {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
 
-.banner {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 1200px;
-    min-height: 260px;
-    border-radius: 15px;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(10,10,20,.95),
-            rgba(10,10,20,.35)
-        ),
-        linear-gradient(135deg,#17234b,#331d55);
+        .category {
+            background: #181821;
+            border: 1px solid #30303c;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
 
-    display: flex;
-    align-items: center;
-    padding: 45px;
-}
+        .category:hover {
+            background: #4f8cff;
+        }
 
-.banner h1 {
-    font-size: 48px;
-    margin-bottom: 12px;
-}
+        /* CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-.banner p {
-    color: #c4c4d0;
-    font-size: 18px;
-}
+        .title {
+            margin: 20px 0;
+            font-size: 28px;
+        }
 
-/* CATEGORIAS */
+        /* PRODUTOS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 20px;
+            padding-bottom: 50px;
+        }
 
-.categories {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-}
+        .card {
+            background: #15151e;
+            border: 1px solid #292934;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: .2s;
+        }
 
-.category {
-    background: #181821;
-    border: 1px solid #30303c;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    white-space: nowrap;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #4f8cff;
+        }
 
-.category:hover {
-    background: #4f8cff;
-}
+        .cover {
+            height: 250px;
+            background: linear-gradient(145deg, #263d74, #18182a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+        }
 
-/* PRODUTOS */
+        .cover h2 {
+            font-size: 21px;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+        .info {
+            padding: 15px;
+        }
 
-.title {
-    margin: 20px 0;
-    font-size: 28px;
-}
+        .info h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
 
-.products {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fill,minmax(190px,1fr));
-    gap: 20px;
-    padding-bottom: 50px;
-}
+        .genre {
+            color: #9696a5;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
 
-.card {
-    background: #15151e;
-    border: 1px solid #292934;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: .2s;
-}
+        .rating {
+            color: #ffd447;
+            margin-bottom: 12px;
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #4f8cff;
-}
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
 
-.cover {
-    height: 250px;
-    background:
-        linear-gradient(
-            145deg,
-            #263d74,
-            #18182a
-        );
+        .add {
+            width: 100%;
+            border: none;
+            background: #4f8cff;
+            color: white;
+            padding: 11px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 15px;
-}
+        .add:hover {
+            background: #326fe0;
+        }
 
-.cover h2 {
-    font-size: 21px;
-}
+        /* CARRINHO */
+        .cartPanel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 380px;
+            max-width: 90%;
+            height: 100%;
+            background: #12121a;
+            z-index: 30;
+            padding: 25px;
+            transition: .3s;
+            box-shadow: -5px 0 25px #000;
+            overflow-y: auto;
+        }
 
-.info {
-    padding: 15px;
-}
+        .cartPanel.open {
+            right: 0;
+        }
 
-.info h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
-}
+        .cartPanel h2 {
+            margin-bottom: 25px;
+        }
 
-.genre {
-    color: #9696a5;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
+        .cartItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #292934;
+            padding: 12px 0;
+        }
 
-.rating {
-    color: #ffd447;
-    margin-bottom: 12px;
-}
+        .remove {
+            color: #ff5555;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
+        .total {
+            margin-top: 25px;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-.add {
-    width: 100%;
-    border: none;
-    background: #4f8cff;
-    color: white;
-    padding: 11px;
-    border-radius: 7px;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .checkout {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background: #22a65a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+        }
 
-.add:hover {
-    background: #326fe0;
-}
+        .checkout:hover {
+            background: #1a7d42;
+        }
 
-/* CARRINHO */
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 25px;
+        }
 
-.cartPanel {
-    position: fixed;
-    right: -400px;
-    top: 0;
-    width: 380px;
-    max-width: 90%;
-    height: 100%;
-    background: #12121a;
-    z-index: 30;
-    padding: 25px;
-    transition: .3s;
-    box-shadow: -5px 0 25px #000;
-}
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+        }
 
-.cartPanel.open {
-    right: 0;
-}
+        /* MODAL PIX */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 40;
+            justify-content: center;
+            align-items: center;
+        }
 
-.cartPanel h2 {
-    margin-bottom: 25px;
-}
+        .modal.show {
+            display: flex;
+        }
 
-.cartItem {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #292934;
-    padding: 12px 0;
-}
+        .modal-content {
+            background: #12121a;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            text-align: center;
+            color: white;
+        }
 
-.remove {
-    color: #ff5555;
-    cursor: pointer;
-}
+        .qr-code {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
 
-.total {
-    margin-top: 25px;
-    font-size: 24px;
-    font-weight: bold;
-}
+        .qr-code img {
+            width: 250px;
+            height: 250px;
+        }
 
-.checkout {
-    width: 100%;
-    margin-top: 20px;
-    padding: 14px;
-    background: #22a65a;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: bold;
-}
+        .copy-button {
+            width: 100%;
+            padding: 12px;
+            background: #4f8cff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 15px 0;
+        }
 
-.close {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    cursor: pointer;
-    font-size: 25px;
-}
+        .copy-button:hover {
+            background: #326fe0;
+        }
 
-/* FOOTER */
+        .pix-code {
+            background: #191923;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            word-break: break-all;
+            font-size: 12px;
+            color: #4f8cff;
+        }
 
-footer {
-    background: #11111a;
-    border-top: 1px solid #29293a;
-    padding: 30px;
-    text-align: center;
-    color: #888894;
-}
+        /* FOOTER */
+        footer {
+            background: #11111a;
+            border-top: 1px solid #29293a;
+            padding: 30px;
+            text-align: center;
+            color: #888894;
+        }
 
-@media(max-width:700px) {
+        @media(max-width:700px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
 
-    header {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
+            .search {
+                width: 100%;
+                order: 3;
+            }
 
-    .search {
-        width: 100%;
-        order: 3;
-    }
+            .banner {
+                padding: 30px;
+            }
 
-    .banner {
-        padding: 30px;
-    }
+            .banner h1 {
+                font-size: 35px;
+            }
 
-    .banner h1 {
-        font-size: 35px;
-    }
-
-}
-
-</style>
+            .cartPanel {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
+    <header>
+        <div class="logo">PS2 <span>STORE</span></div>
+        <div class="search">
+            <input id="search" type="text" placeholder="Pesquisar jogo..." oninput="searchGames()">
+        </div>
+        <button class="cart-btn" onclick="toggleCart()">
+            🛒 Carrinho (<span id="cartCount">0</span>)
+        </button>
+    </header>
 
-<header>
+    <section class="banner">
+        <div>
+            <h1>PS2 STORE</h1>
+            <p>Os clássicos do PlayStation 2 em um só lugar.</p>
+            <p style="margin-top:10px">Jogos físicos e produtos licenciados.</p>
+        </div>
+    </section>
 
-    <div class="logo">
-        PS2 <span>STORE</span>
+    <div class="categories" id="categories"></div>
+
+    <main class="container">
+        <h2 class="title">Jogos de PS2</h2>
+        <div class="products" id="products"></div>
+    </main>
+
+    <footer>
+        PS2 STORE © 2026<br><br>
+        Loja de jogos físicos e produtos licenciados.
+    </footer>
+
+    <!-- CARRINHO -->
+    <div id="cartPanel" class="cartPanel">
+        <div class="close" onclick="toggleCart()">✕</div>
+        <h2>Seu carrinho</h2>
+        <div id="cartItems"></div>
+        <div class="total">Total: R$ <span id="total">0,00</span></div>
+        <button class="checkout" onclick="checkout()">Finalizar pedido</button>
     </div>
 
-    <div class="search">
-
-        <input
-            id="search"
-            type="text"
-            placeholder="Pesquisar jogo..."
-            oninput="searchGames()"
-        >
-
-    </div>
-
-    <button
-        class="cart"
-        onclick="toggleCart()"
-    >
-        🛒 Carrinho
-        (<span id="cartCount">0</span>)
-    </button>
-
-</header>
-
-
-<section class="banner">
-
-    <div>
-
-        <h1>PS2 STORE</h1>
-
-        <p>
-            Os clássicos do PlayStation 2 em um só lugar.
-        </p>
-
-        <p style="margin-top:10px">
-            Jogos físicos e produtos licenciados.
-        </p>
-
-    </div>
-
-</section>
-
-
-<div class="categories">
-
-    <button
-        class="category"
-        onclick="filterGames('Todos')"
-    >
-        Todos
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGames('Ação')"
-    >
-        🔥 Ação
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGames('Corrida')"
-    >
-        🏎️ Corrida
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGames('Futebol')"
-    >
-        ⚽ Futebol
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGames('Terror')"
-    >
-        👻 Terror
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGames('Aventura')"
-    >
-        🗺️ Aventura
-    </button>
-
-</div>
-
-
-<main class="container">
-
-    <h2 class="title">
-        Jogos de PS2
-    </h2>
-
-    <div
-        class="products"
-        id="products"
-    ></div>
-
-</main>
-
-
-<footer>
-
-    PS2 STORE © 2026
-
-    <br><br>
-
-    Loja de jogos físicos e produtos licenciados.
-
-</footer>
-
-
-<!-- CARRINHO -->
-
-<div
-    id="cartPanel"
-    class="cartPanel"
->
-
-    <div
-        class="close"
-        onclick="toggleCart()"
-    >
-        ✕
-    </div>
-
-    <h2>Seu carrinho</h2>
-
-    <div id="cartItems"></div>
-
-    <div class="total">
-
-        Total:
-        R$ <span id="total">0,00</span>
-
-    </div>
-
-    <button
-        class="checkout"
-        onclick="checkout()"
-    >
-        Finalizar pedido
-    </button>
-
-</div>
-
-
-<script>
-
-
-const games = [
-
-    {
-        name: "Grand Theft Auto: San Andreas",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "God of War",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "God of War II",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Resident Evil 4",
-        genre: "Terror",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Need for Speed Underground 2",
-        genre: "Corrida",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Need for Speed Most Wanted",
-        genre: "Corrida",
-        price:5.00,
-        rating: 5
-    },
-
-    {
-        name: "Gran Turismo 4",
-        genre: "Corrida",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Black",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Shadow of the Colossus",
-        genre: "Aventura",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Devil May Cry 3",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Silent Hill 2",
-        genre: "Terror",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Dragon Ball Z Budokai 3",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Naruto Ultimate Ninja 5",
-        genre: "Ação",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Winning Eleven",
-        genre: "Futebol",
-        price: 5.00,
-        rating: 4
-    },
-
-    {
-        name: "Pro Evolution Soccer",
-        genre: "Futebol",
-        price: 5.00,
-        rating: 4
-    },
-
-    {
-        name: "Bully",
-        genre: "Aventura",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Kingdom Hearts II",
-        genre: "Aventura",
-        price: 5.00,
-        rating: 5
-    },
-
-    {
-        name: "Resident Evil Code Veronica X",
-        genre: "Terror",
-        price: 5.00,
-        rating: 5
-    }
-
-];
-
-
-let cart = [];
-
-let currentGames = games;
-
-
-// =====================================================
-// MOSTRAR JOGOS
-// =====================================================
-
-function renderGames(list) {
-
-    const container =
-        document.getElementById("products");
-
-    container.innerHTML = "";
-
-
-    list.forEach((game, index) => {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "card";
-
-
-        card.innerHTML = `
-
-            <div class="cover">
-
-                <h2>
-                    ${game.name}
-                </h2>
-
+    <!-- MODAL PIX -->
+    <div id="pixModal" class="modal">
+        <div class="modal-content">
+            <h2>💳 Pagamento via Pix</h2>
+            <p style="margin: 20px 0; color: #c4c4d0;">Escaneie o código QR com seu banco</p>
+            <div class="qr-code">
+                <img id="qrCodeImage" src="" alt="QR Code Pix">
             </div>
-
-            <div class="info">
-
-                <h3>
-                    ${game.name}
-                </h3>
-
-                <div class="genre">
-                    ${game.genre}
-                </div>
-
-                <div class="rating">
-                    ${"★".repeat(game.rating)}
-                    ${"☆".repeat(5-game.rating)}
-                </div>
-
-                <div class="price">
-                    R$ ${game.price.toFixed(2).replace(".",",")}
-                </div>
-
-                <button
-                    class="add"
-                    onclick="addCart(${games.indexOf(game)})"
-                >
-                    Adicionar ao carrinho
-                </button>
-
-            </div>
-
-        `;
-
-
-        container.appendChild(card);
-
-    });
-
-}
-
-
-renderGames(games);
-
-
-// =====================================================
-// BUSCA
-// =====================================================
-
-function searchGames() {
-
-    const text =
-        document
-        .getElementById("search")
-        .value
-        .toLowerCase();
-
-
-    const result =
-        currentGames.filter(game =>
-            game.name
-            .toLowerCase()
-            .includes(text)
-        );
-
-
-    renderGames(result);
-
-}
-
-
-// =====================================================
-// FILTRO
-// =====================================================
-
-function filterGames(category) {
-
-    if (category === "Todos") {
-
-        currentGames = games;
-
-    }
-
-    else {
-
-        currentGames =
-            games.filter(
-                game =>
-                game.genre === category
-            );
-
-    }
-
-
-    renderGames(currentGames);
-
-}
-
-
-// =====================================================
-// CARRINHO
-// =====================================================
-
-function addCart(index) {
-
-    cart.push(games[index]);
-
-    updateCart();
-
-}
-
-
-function removeCart(index) {
-
-    cart.splice(index,1);
-
-    updateCart();
-
-}
-
-
-function updateCart() {
-
-    const items =
-        document.getElementById("cartItems");
-
-    items.innerHTML = "";
-
-
-    let total = 0;
-
-
-    cart.forEach((game,index) => {
-
-        total += game.price;
-
-
-        const item =
-            document.createElement("div");
-
-        item.className =
-            "cartItem";
-
-
-        item.innerHTML = `
-
-            <div>
-                ${game.name}
-                <br>
-                <small>
-                    R$ ${game.price.toFixed(2)}
-                </small>
-            </div>
-
-            <div
-                class="remove"
-                onclick="removeCart(${index})"
-            >
-                ✕
-            </div>
-
-        `;
-
-
-        items.appendChild(item);
-
-    });
-
-
-    document.getElementById(
-        "total"
-    ).textContent =
-        total.toFixed(2).replace(".",",");
-
-
-    document.getElementById(
-        "cartCount"
-    ).textContent =
-        cart.length;
-
-}
-
-
-// =====================================================
-// ABRIR CARRINHO
-// =====================================================
-
-function toggleCart() {
-
-    document
-        .getElementById("cartPanel")
-        .classList
-        .toggle("open");
-
-}
-
-
-// =====================================================
-// FINALIZAR
-// =====================================================
-
-function checkout() {
-
-    if (cart.length === 0) {
-
-        alert(
-            "Seu carrinho está vazio."
-        );
-
-        return;
-
-    }
-
-
-    alert(
-        "Pedido criado!\
-\
-" +
-        "Nesta versão é apenas uma demonstração.\
-" +
-        "Depois podemos conectar o pagamento."
-    );
-
-}
-
-
-</script>
+            <p style="margin: 15px 0; color: #c4c4d0;">Ou copie o código:</p>
+            <div class="pix-code" id="pixCode"></div>
+            <button class="copy-button" onclick="copyPixCode()">📋 Copiar código Pix</button>
+            <button class="copy-button" style="background: #888;" onclick="closePix()">Fechar</button>
+            <p style="margin-top: 20px; font-size: 12px; color: #666;">
+                Seu pagamento será confirmado automaticamente
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000';
+        let products = [];
+        let cart = [];
+        let currentCategory = 'Todos';
+
+        // ==========================================
+        // CARREGAR PRODUTOS
+        // ==========================================
+
+        async function loadProducts() {
+            try {
+                const response = await fetch(`${API_URL}/api/products`);
+                products = await response.json();
+                renderProducts(products);
+                renderCategories();
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                document.getElementById('products').innerHTML = '<p style="color: red;">Erro ao carregar produtos. Verifique se o servidor está rodando.</p>';
+            }
+        }
+
+        // ==========================================
+        // RENDERIZAR CATEGORIAS
+        // ==========================================
+
+        function renderCategories() {
+            const categories = ['Todos', ...new Set(products.map(p => p.genre))];
+            const container = document.getElementById('categories');
+            container.innerHTML = '';
+
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'category';
+                button.textContent = category;
+                button.onclick = () => filterByCategory(category);
+                container.appendChild(button);
+            });
+        }
+
+        // ==========================================
+        // FILTRAR POR CATEGORIA
+        // ==========================================
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            if (category === 'Todos') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.genre === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // ==========================================
+        // BUSCAR PRODUTOS
+        // ==========================================
+
+        function searchGames() {
+            const text = document.getElementById('search').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(text));
+            renderProducts(filtered);
+        }
+
+        // ==========================================
+        // RENDERIZAR PRODUTOS
+        // ==========================================
+
+        function renderProducts(list) {
+            const container = document.getElementById('products');
+            container.innerHTML = '';
+
+            list.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="cover"><h2>${product.name}</h2></div>
+                    <div class="info">
+                        <h3>${product.name}</h3>
+                        <div class="genre">${product.genre}</div>
+                        <div class="rating">${'★'.repeat(product.rating)}${'☆'.repeat(5-product.rating)}</div>
+                        <div class="price">R$ ${product.price.toFixed(2).replace('.', ',')}</div>
+                        <div style="font-size: 12px; color: #999; margin-bottom: 10px;">Estoque: ${product.stock}</div>
+                        <button class="add" onclick="addCart(${product.id})">Adicionar ao carrinho</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ==========================================
+        // CARRINHO
+        // ==========================================
+
+        function addCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product && product.stock > 0) {
+                cart.push(product);
+                updateCart();
+                alert(`${product.name} adicionado ao carrinho!`);
+            } else {
+                alert('Produto indisponível!');
+            }
+        }
+
+        function removeCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const items = document.getElementById('cartItems');
+            items.innerHTML = '';
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const div = document.createElement('div');
+                div.className = 'cartItem';
+                div.innerHTML = `
+                    <div>
+                        ${item.name}<br>
+                        <small>R$ ${item.price.toFixed(2).replace('.', ',')}</small>
+                    </div>
+                    <div class="remove" onclick="removeCart(${index})">✕</div>
+                `;
+                items.appendChild(div);
+            });
+
+            document.getElementById('total').textContent = total.toFixed(2).replace('.', ',');
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        function toggleCart() {
+            document.getElementById('cartPanel').classList.toggle('open');
+        }
+
+        // ==========================================
+        // CHECKOUT COM PIX
+        // ==========================================
+
+        async function checkout() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+
+            try {
+                const items = cart.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: 1
+                }));
+
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+                const response = await fetch(`${API_URL}/api/orders`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        items,
+                        customer: { name: 'Cliente', email: 'cliente@email.com' },
+                        total
+                    })
+                });
+
+                const order = await response.json();
+
+                if (order.pixQrCode) {
+                    showPixModal(order.pixQrCode, order.pixCopyPaste);
+                    cart = [];
+                    updateCart();
+                    toggleCart();
+                } else {
+                    alert('Erro ao gerar QR Code. Tente novamente.');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao processar pedido. Verifique se o servidor está rodando.');
+            }
+        }
+
+        function showPixModal(qrCode, pixCode) {
+            document.getElementById('qrCodeImage').src = qrCode;
+            document.getElementById('pixCode').textContent = pixCode;
+            document.getElementById('pixModal').classList.add('show');
+        }
+
+        function closePix() {
+            document.getElementById('pixModal').classList.remove('show');
+        }
+
+        function copyPixCode() {
+            const code = document.getElementById('pixCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Código Pix copiado!');
+            });
+        }
+
+        // ==========================================
+        // INICIALIZAR
+        // ==========================================
+
+        loadProducts();
+    </script>
 
 </body>
 
